@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/", function () {
-    return view("frontend.index");
+    $courses = [1, 2, 3, 4, 5, 6];
+    return view("frontend.index", compact("courses"));
 });
 
 Route::get("/courses", function () {
