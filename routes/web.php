@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/", function () {
-    $courses = [1, 2, 3, 4, 5, 6];
-    return view("frontend.index", compact("courses"));
-});
+Route::get("/", [CourseController::class, 'index']);
 
 Route::get("/courses", function () {
     return "Courses";

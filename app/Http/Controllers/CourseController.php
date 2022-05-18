@@ -9,7 +9,7 @@ class CourseController extends Controller
 {
     public function index()
     {
-        // $courss = Course::all();
-        // return view("frontend.index", compact("courses"));
+        $courses = Course::all();
+        return view("frontend.index", compact("courses"));
     }
 }
