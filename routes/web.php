@@ -21,9 +21,13 @@ Route::get("/courses", function () {
     return "Courses";
 });
 
+Route::get("/course/{slug}", function ($slug) {
+    return "Courses " . $slug;
+})->name("course.show");
+
 Route::get("categories", function () {
     return "Categories";
-});
+})->name("category.index");
 
 Route::get("about", function () {
     return "about";
