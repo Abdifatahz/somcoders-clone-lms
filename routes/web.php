@@ -18,15 +18,7 @@ use App\Http\Controllers\CategoryController;
 
 Route::get("/", [HomeController::class, 'index'])->name("home");
 Route::get("categories/{name}", [CategoryController::class, 'show'])->name("category.show");
-
-
-Route::get("/courses", function () {
-    return "Courses";
-});
-
-Route::get("/course/{slug}", function ($slug) {
-    return "Courses " . $slug;
-})->name("course.show");
+Route::get("course/{slug}", [CourseController::class, 'show'])->name("category.show");
 
 
 Route::get("about", function () {

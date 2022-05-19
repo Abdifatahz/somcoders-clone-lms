@@ -81,7 +81,8 @@
                                     </div>
                                 @endforeach
 
-                                <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                <a class="text-decoration-none link-dark stretched-link"
+                                    href="{{ route('course.show', strtolower($course->slug)) }}">
                                     <h5 class="card-title mb-3">{{ \Str::limit($course->title, 50) }}</h5>
                                 </a>
                                 <p class="card-text mb-0">{{ \Str::limit($course->description, 80) }}</p>
