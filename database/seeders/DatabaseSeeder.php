@@ -25,5 +25,13 @@ class DatabaseSeeder extends Seeder
         $this->call(CourseSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(LessonSeeder::class);
+
+
+        foreach (range(1, 5) as $num) {
+            DB::table('category_course')->insert([
+                'course_id' => $num,
+                'category_id' => $num,
+            ]);
+        }
     }
 }
