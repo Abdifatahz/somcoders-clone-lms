@@ -52,7 +52,9 @@
                             <img class="card-img-top" src="https://picsum.photos/id/1{{ $course->id }}/600/350"
                                 alt="..." />
                             <div class="card-body p-4">
-                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Category</div>
+                                @foreach ($course->categories as $category)
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{ $category->name }}</div>
+                                @endforeach
 
                                 <a class="text-decoration-none link-dark stretched-link" href="#!">
                                     <h5 class="card-title mb-3">{{ \Str::limit($course->title, 50) }}</h5>
@@ -90,7 +92,8 @@
                         <div class="card shadow border-0">
                             <div class="card-body p-4 d-flex justify-content-center">
                                 <a class="text-decoration-none text-primary stretched-link" href="#!">
-                                    <h5 class="card-title">{{ $category->name }} <b class="text-secondary">(12)</b>
+                                    <h5 class="card-title">{{ $category->name }} <b
+                                            class="text-secondary">({{ $category->courses->count() }})</b>
                                     </h5>
                                 </a>
                             </div>
