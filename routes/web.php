@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use App\Http\Controllers\CourseController;
 |
 */
 
-Route::get("/", [CourseController::class, 'index']);
+Route::get("/", [HomeController::class, 'index'])->name("home");
 Route::get("categories/{name}", [CategoryController::class, 'show'])->name("category.show");
 
 
