@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $courses    =  Course::with("categories")->get();
+        $courses    =  Course::withCount("lessons")->with("categories")->get();
         $categories =  Category::withCount("courses")->get();
         return view("frontend.index", compact("courses", "categories"));
     }

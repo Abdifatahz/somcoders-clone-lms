@@ -10,7 +10,7 @@ class CourseController extends Controller
 
     public function show($slug)
     {
-        $course =  Course::with("categories")->whereSlug($slug)->first();
+        $course =  Course::with("categories", "lessons.children")->whereSlug($slug)->first();
         return view("frontend.course", compact("course"));
     }
 }

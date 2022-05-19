@@ -33,13 +33,49 @@
                         <!-- Comments section-->
                         <section>
                             <div class="card bg-light">
-                                Lessons and Videos
+                                @forelse ($course->lessons as $lesson)
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="accordion-item">
+                                            <h3 class="accordion-header" id="heading{{ $lesson->id }}"><button
+                                                    class="accordion-button bg-dark text-light collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse{{ $lesson->id }}"
+                                                    aria-expanded="false"
+                                                    aria-controls="collapse{{ $lesson->id }}">{{ $lesson->title }}
+                                                    <i class="mx-2">({{ $lesson->children->count() }}
+                                                        videos)</i>
+                                                </button>
+                                            </h3>
+                                            <div class="accordion-collapse collapse show" id="collapse{{ $lesson->id }}"
+                                                aria-labelledby="heading{{ $lesson->id }}"
+                                                data-bs-parent="#accordionExample">
+                                                <div class="accordion-body p-0">
+                                                    @forelse ($lesson->children as $child)
+                                                        <ul class="list-group m-0 p-1">
+                                                            <a href="#" class="text-decoration-none">
+                                                                <li class="list-group-item p-2">
+                                                                    <i class="bi bi-play-circle text-primary"></i>
+                                                                    {{ $child->title }}
+                                                                    @if (!$child->is_free)
+                                                                        <i class="float-end bi bi-lock"></i>
+                                                                    @endif
+                                                                </li>
+                                                            </a>
+                                                        </ul>
+                                                    @empty
+                                                        <p class="p-2">No Videos Found</p>
+                                                    @endforelse
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @empty
+                                    <p class="p-2">No Lessons Found</p>
+                                @endforelse
                             </div>
                         </section>
                     </div>
 
                     <div class="col-lg-4">
-                        <div class="h-25"></div>
                         <br>
                         <div class="card mb-5 mb-xl-0">
                             <div class="card-body p-5">

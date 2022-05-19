@@ -92,7 +92,8 @@
                                     <div class="fw-bold text-secondary">{{ $course->duration }}
                                         Hours</div>
                                     <div class="small">
-                                        <div class="fw-bold text-secondary">23 Lessons</div>
+                                        <div class="fw-bold text-secondary">{{ $course->lessons_count }}
+                                            {{ \Str::plural('Lesson', $course->lessons_count) }}</div>
                                     </div>
                                 </div>
                             </div>
