@@ -45,9 +45,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($name)
     {
-        //
+        $category =  Category::with("courses")->whereName($name)->first();
+
+        return view("frontend.category", compact("category"));
     }
 
     /**

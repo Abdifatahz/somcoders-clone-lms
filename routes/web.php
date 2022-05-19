@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 
@@ -15,6 +16,8 @@ use App\Http\Controllers\CourseController;
 */
 
 Route::get("/", [CourseController::class, 'index']);
+Route::get("categories/{name}", [CategoryController::class, 'show'])->name("category.show");
+
 
 Route::get("/courses", function () {
     return "Courses";
@@ -24,9 +27,6 @@ Route::get("/course/{slug}", function ($slug) {
     return "Courses " . $slug;
 })->name("course.show");
 
-Route::get("categories", function () {
-    return "Categories";
-})->name("category.index");
 
 Route::get("about", function () {
     return "about";

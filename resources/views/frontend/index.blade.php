@@ -1,6 +1,30 @@
 @extends('layouts.frontend')
 
 @section('content')
+    <!-- Header-->
+    <header class="bg-navy py-5">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center justify-content-center">
+                <div class="col-lg-8 col-xl-7 col-xxl-6">
+                    <div class="my-5 text-center text-xl-start">
+                        <h1 class="display-5 fw-bolder text-white mb-2">Koorsooyin tayo leh oo ay diyaariyeen
+                            bareyaal aqoon uleh
+                        </h1>
+                        <p class="lead fw-normal text-white-50 mb-4">KUBARO AF-KAAGA HOOYO
+                            PROGRAMMING
+                            DATABASES
+                            GRAPHIC DESIGN</p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5"
+                        src="{{ asset('images/profile-linkedin.jpg') }}" alt="..." /></div>
+            </div>
+        </div>
+    </header>
+
     <!-- Features section-->
     <section class="py-5" id="features">
         <div class="container px-5 my-5">
@@ -92,7 +116,8 @@
                     <div class="col-lg-4 mb-5">
                         <div class="card shadow border-0">
                             <div class="card-body p-4 d-flex justify-content-center">
-                                <a class="text-decoration-none text-primary stretched-link" href="#!">
+                                <a class="text-decoration-none text-primary stretched-link"
+                                    href="{{ route('category.show', strtolower($category->name)) }}">
                                     <h5 class="card-title">{{ $category->name }} <b
                                             class="text-secondary">({{ $category->courses_count }})</b>
                                     </h5>
