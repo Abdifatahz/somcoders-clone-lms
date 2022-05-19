@@ -73,6 +73,32 @@
                 @endforeach
 
             </div>
+            <br>
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="text-center">
+                        <h2 class="fw-bolder">Categories</h2>
+                        <p class="lead fw-normal text-muted mb-5">Most popular Categories</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gx-5">
+
+                @foreach ($categories as $category)
+                    <div class="col-lg-4 mb-5">
+                        <div class="card shadow border-0">
+                            <div class="card-body p-4 d-flex justify-content-center">
+                                <a class="text-decoration-none text-primary stretched-link" href="#!">
+                                    <h5 class="card-title">{{ $category->name }} <b class="text-secondary">(12)</b>
+                                    </h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
             {{-- <!-- Call to action-->
             <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
                 <div
