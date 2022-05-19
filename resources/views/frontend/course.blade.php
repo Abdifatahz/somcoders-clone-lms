@@ -23,8 +23,12 @@
                                 @endforeach
                             </header>
                             <!-- Preview image figure-->
-                            <figure class="mb-4"><img class="img-fluid rounded"
-                                    src="https://picsum.photos/id/1{{ $course->id }}/900/400" alt="..." /></figure>
+                            <div class="ratio ratio-16x9">
+                                <iframe class="rounded-3" src="https://www.youtube.com/embed/{{ $course->embed }}"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
                             <!-- Post content-->
                             <section class="mb-5">
                                 <p class="fs-5 mb-4">{{ $course->description }}</p>
