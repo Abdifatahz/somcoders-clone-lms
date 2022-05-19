@@ -53,7 +53,8 @@
                                 alt="..." />
                             <div class="card-body p-4">
                                 @foreach ($course->categories as $category)
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{ $category->name }}</div>
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{ $category->name }}
+                                    </div>
                                 @endforeach
 
                                 <a class="text-decoration-none link-dark stretched-link" href="#!">
@@ -93,7 +94,7 @@
                             <div class="card-body p-4 d-flex justify-content-center">
                                 <a class="text-decoration-none text-primary stretched-link" href="#!">
                                     <h5 class="card-title">{{ $category->name }} <b
-                                            class="text-secondary">({{ $category->courses->count() }})</b>
+                                            class="text-secondary">({{ $category->courses_count }})</b>
                                     </h5>
                                 </a>
                             </div>

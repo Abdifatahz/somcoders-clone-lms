@@ -10,8 +10,8 @@ class CourseController extends Controller
 {
     public function index()
     {
-        $courses    = Course::all();
-        $categories =   Category::all();
+        $courses    =  Course::with("categories")->get();
+        $categories =  Category::withCount("courses")->get();
         return view("frontend.index", compact("courses", "categories"));
     }
 }
